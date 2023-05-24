@@ -25,8 +25,6 @@ Specifically, the project will:
 
 ## Setting up the Quickstart
 
-{Language specific but an example of Node.js is below}
-
 1. Install the required packages
 
    ```bash

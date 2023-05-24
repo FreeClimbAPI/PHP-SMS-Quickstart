@@ -28,7 +28,7 @@ $message_request = new \FreeClimb\Api\Model\MessageRequest($data); // \FreeClimb
 
 try {
     $result = $apiInstance->sendAnSmsMessage($message_request);
-   // print_r($result);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->sendAnSmsMessage: ', $e->getMessage(), PHP_EOL;
 }
