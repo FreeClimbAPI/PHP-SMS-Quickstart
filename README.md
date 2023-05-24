@@ -7,10 +7,6 @@ Specifically, the project will:
 - Receive an incoming message via a FreeClimb application
 - Respond with a FreeClimb command to say 'Hello World!' to messager
 
-## Tutorial
-
-We do not currently offer a tutorial for this quickstart. Coming soon...
-
 ## Requirements
 
 - A [FreeClimb account](https://www.freeclimb.com/dashboard/signup/)
@@ -42,6 +38,9 @@ We do not currently offer a tutorial for this quickstart. Coming soon...
    ```bash
    https://{ngrok-generated-url}/incoming-sms.php
    ```
+3. Add the `ACCOUNT_ID` and `API_KEY` variables to a .env file and populate them with the values from the [FreeClimb Dashboard](https://freeclimb.com/dashboard/portal)
+
+4. Update the `from` and `to` paramters in `incoming-sms.php` to be your FC Number and Verified Number respectively
 
 ## Running the Quickstart
 

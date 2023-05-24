@@ -17,21 +17,18 @@ $apiInstance = new FreeClimb\Api\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
+
 $account_id = $_ENV['ACCOUNT_ID']; // string | ID of the account
-// $body = json_decode(file_get_contents("php://input"));
-// print('here');
-// $to  =  $body->from;
-//echo 'here2', $body;
 $data = array(
-    'from' => '+19784784240', 
-    'to' => '+13172245552', 
+    'from' => '', //FC Number
+    'to' => '', //Verified Number
     'text' => 'Hello World!',
 );
 $message_request = new \FreeClimb\Api\Model\MessageRequest($data); // \FreeClimb\Api\Model\MessageRequest | Details to create a message
 
 try {
     $result = $apiInstance->sendAnSmsMessage($message_request);
-    //print_r($result);
+   // print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->sendAnSmsMessage: ', $e->getMessage(), PHP_EOL;
 }
