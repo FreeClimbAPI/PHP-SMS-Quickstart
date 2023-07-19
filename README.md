@@ -33,19 +33,14 @@ Specifically, the project will:
 
 2. Configure environment variables:
 
-    | ENV VARIABLE    | DESCRIPTION                                                                                                                                                                                                                               |
-    | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | ACCOUNT_ID      | Account ID which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard.                                                                                                    |
-    | API_KEY         | API key which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard.                                                                                                       |
- 
-3. Replace placeholder values for `to` and `from` numbers in `incoming-sms.php`:
+   | ENV VARIABLE | DESCRIPTION                                                                                                                                                                                            |
+   | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+   | ACCOUNT_ID   | Account ID which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard.                                                                 |
+   | API_KEY      | API key which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard.                                                                    |
+   | TO           | The number which will receive messages from your application. For trial accounts, this is your [verified number](https://docs.freeclimb.com/docs/using-your-trial-account#verifying-outbound-numbers). |
+   | FROM         | The number that sends messages from your application. Your FreeClimb number.                                                                                                                           |
 
-    | VARIABLE        | DESCRIPTION                                                                                                                                                                                                                               |
-    | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | TO              | The number which will receive messages from your application. For trial accounts, this is your [verified number](https://docs.freeclimb.com/docs/using-your-trial-account#verifying-outbound-numbers).                                    |
-    | FROM            | The number that sends messages from your application. Your FreeClimb number.
-
-4. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/incoming-sms.php` to your App Config's VoiceURL:
+3. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/incoming-sms.php` to your App Config's VoiceURL:
 
    ```bash
    https://{ngrok-generated-url}/incoming-sms.php
