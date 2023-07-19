@@ -1,6 +1,6 @@
 {
     "require": {
-        "freeclimbapi/php-sdk": "^4.0",
+        "freeclimbapi/php-sdk": "4.2.0",
         "vlucas/phpdotenv": "^5.5.0"
     }
 }
