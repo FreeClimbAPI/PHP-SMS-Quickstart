@@ -8,20 +8,22 @@ $dotenv->load();
 
 // Configure HTTP basic authorization: fc
 $config = FreeClimb\Api\Configuration::getDefaultConfiguration()
-              ->setUsername($_ENV['ACCOUNT_ID'])
-              ->setPassword($_ENV['API_KEY']);
+    ->setUsername($_ENV['ACCOUNT_ID'])
+    ->setPassword($_ENV['API_KEY']);
 
 $apiInstance = new FreeClimb\Api\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
+        // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+        // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
 $account_id = $_ENV['ACCOUNT_ID']; // string | ID of the account
 $data = array(
-    'from' => '', //FC Number
-    'to' => '', //Verified Number
+    'from' => $_ENV['FROM'],
+    //FC Number
+    'to' => $_ENV['TO'],
+    //Verified Number
     'text' => 'Hello World!',
 );
 $message_request = new \FreeClimb\Api\Model\MessageRequest($data); // \FreeClimb\Api\Model\MessageRequest | Details to create a message
