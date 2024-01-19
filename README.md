@@ -31,7 +31,7 @@ Specifically, the project will:
    composer install
    ```
 
-2. Configure environment variables:
+2. Configure environment variables in separate .env file:
 
    | ENV VARIABLE | DESCRIPTION                                                                                                                                                                                            |
    | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -40,7 +40,11 @@ Specifically, the project will:
    | TO           | The number which will receive messages from your application. For trial accounts, this is your [verified number](https://docs.freeclimb.com/docs/using-your-trial-account#verifying-outbound-numbers). |
    | FROM         | The number that sends messages from your application. Your FreeClimb number.                                                                                                                           |
 
-3. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/incoming-sms.php` to your App Config's VoiceURL:
+3. Run ngrok:
+   ```
+   bash ngrok http 8080
+   ```
+4. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/incoming-sms.php` to your App Config's SMSURL:
 
    ```bash
    https://{ngrok-generated-url}/incoming-sms.php
@@ -48,7 +52,7 @@ Specifically, the project will:
 
 ## Running the Quickstart
 
-1. Start your voice quickstart application
+1. Start your sms quickstart application
 
    ```bash
    php -S 127.0.0.1:8080
