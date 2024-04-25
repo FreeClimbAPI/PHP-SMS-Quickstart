@@ -4,10 +4,11 @@ require 'vendor/autoload.php';
 use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+$dotenv->safeLoad();
 
 // Configure HTTP basic authorization: fc
 $config = FreeClimb\Api\Configuration::getDefaultConfiguration()
+    ->setHost($_ENV['API_SERVER'] ?? 'https://www.freeclimb.com/apiserver')
     ->setUsername($_ENV['ACCOUNT_ID'])
     ->setPassword($_ENV['API_KEY']);
 
@@ -18,11 +19,13 @@ $apiInstance = new FreeClimb\Api\Api\DefaultApi(
     $config
 );
 
+$request = json_decode(file_get_contents('php://input'), true);
+
 $account_id = $_ENV['ACCOUNT_ID']; // string | ID of the account
 $data = array(
-    'from' => $_ENV['FROM'],
+    'from' => $_ENV['FREECLIMB_NUMBER'],
     //FC Number
-    'to' => $_ENV['TO'],
+    'to' => $request['from'],
     //Verified Number
     'text' => 'Hello World!',
 );
