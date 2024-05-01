@@ -26,6 +26,7 @@ $apiInstance = new FreeClimb\Api\Api\DefaultApi(
     $config
 );
 
+// Parses the FreeClimb Incoming Webhook Request through raw http post data
 $request = json_decode(file_get_contents('php://input'), true);
 
 $account_id = $_ENV['ACCOUNT_ID']; // string | ID of the account
