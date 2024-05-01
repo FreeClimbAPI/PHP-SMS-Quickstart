@@ -6,6 +6,13 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
+// Check if required environment variables are set
+if(!isset($_ENV['ACCOUNT_ID']) || !isset($_ENV['API_KEY']) || !isset($_ENV['FREECLIMB_NUMBER'])){
+    error_log("ERROR: ENVIRONMENT VARIABLES ARE NOT SET. PLEASE SET ALL ENVIRONMMENT VARIABLES AND RETRY.");
+    $currentPID = getmypid();
+    exec("kill -9 $currentPID");
+} 
+
 // Configure HTTP basic authorization: fc
 $config = FreeClimb\Api\Configuration::getDefaultConfiguration()
     ->setHost($_ENV['API_SERVER'] ?? 'https://www.freeclimb.com/apiserver')
