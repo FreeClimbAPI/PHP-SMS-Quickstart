@@ -35,7 +35,7 @@ $data = array(
     //FC Number
     'to' => $request['from'],
     //Verified Number
-    'text' => 'Hello World!',
+    'text' => 'Hello, World!',
 );
 $message_request = new \FreeClimb\Api\Model\MessageRequest($data); // \FreeClimb\Api\Model\MessageRequest | Details to create a message
 
